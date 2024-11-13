@@ -16,7 +16,7 @@ export function initMixin(Vue) {
         }
     }
     Vue.prototype.$mount = function (el) {
-        console.log('el', el)
+        // console.log('el', el)
         el = document.querySelector(el)
 
         let vm = this
@@ -31,9 +31,7 @@ export function initMixin(Vue) {
 
                 // html -> ast语法树
                 let ast = compileToFunction(el)
-                // 变成render()
 
-                // 变成虚拟节点
             }
             // if (template) {
             //     options.render = compileToFunction(template)

@@ -2,7 +2,7 @@ const ncname = `[a-zA-Z_][\\-\\.0-9_a-zA-z]*` // 标签名称
 const qnameCapture = `((?:${ncname}\\:)?${ncname})` // <span:xx>
 const startTagOpen = new RegExp(`^<${qnameCapture}`) // 标签开头的正则，捕获的内容是标签名
 const endTag = new RegExp(`^<\\/${qnameCapture}[^>]*>`) // 匹配标签结尾的</div>
-const attribute = /^\s*([^\s”’<>\/=]+)(?:\s*(=)\s*(?:”([^”]*)”+|’([^’]*)’+|([^\s”’=<>`]+)))?/ // {id: app}
+const attribute = /^\s*([^\s”’<>\/=]+)(?:\s*(=)\s*(?:"([^"]*)"|’([^’]*)’|([^\s”’=<>`]+)))?/ // {id: app}
 const startTagClose = /^\s*(\/?)>/ // 匹配标签结束的 >
 const defaultTagRe = /\{\{((?:.|\r?\n)+?)\}\}/g
 
