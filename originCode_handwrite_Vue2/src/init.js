@@ -11,6 +11,36 @@ export function initMixin(Vue) {
         initStatus(vm)
 
         // 渲染模板
+        if (vm.$options.el) {
+            vm.$mount(vm.$options.el)
+        }
+    }
+    Vue.prototype.$mount = function (el) {
+        console.log('el', el)
+        el = document.querySelector(el)
+
+        let vm = this
+        let options = vm.$options
+
+        if (!options.render) {
+            let template = options.template
+            if (!template && el) {
+                // 获取html
+                el = el.outerHTML
+                console.log('el.outerHTML', el)
+
+                // html -> ast语法树
+                let ast = compileToFunction(el)
+                // 变成render()
+
+                // 变成虚拟节点
+            }
+            // if (template) {
+            //     options.render = compileToFunction(template)
+            // }
+        } else {
+
+        }
     }
 
 }
