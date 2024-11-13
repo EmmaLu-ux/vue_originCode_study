@@ -1,0 +1,19 @@
+{
+  "name": "origincode_handwrite_vue2",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "rollup -c -w"
+  },
+  "keywords": [],
+  "author": "emmaLu",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@babel/core": "^7.26.0",
+    "@babel/preset-env": "^7.26.0",
+    "@rollup/plugin-babel": "^6.0.4",
+    "rollup": "^4.24.4",
+    "rollup-plugin-serve": "^1.1.1"
+  }
+}

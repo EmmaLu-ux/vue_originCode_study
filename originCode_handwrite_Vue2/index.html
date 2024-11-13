@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">123 {{message}}
+
+        <h1>qwe</h1>
+    </div>
+    <script src="dist/vue.js"></script>
+
+    <script>
+        // umd Vue
+        // console.log(Vue)
+        let vm = new Vue({
+            el: "#app",
+            data() {
+                return {
+                    message: '你好',
+                    a: {
+                        b: {
+                            c: 909
+                        }
+                    },
+                    list: [23, 567, 3],
+                    arr: [{ a: 1 }]
+                }
+            },
+            methods: {},
+            computed: {},
+            props: {},
+            watch: {},
+        })
+        // .#mount('el')
+        console.log('123', vm)
+        // console.log('vm', vm._data.message = 'hello')
+        // vm._data.arr.push({ add: '890' })
+        // console.log('vm', vm._data.arr)
+    </script>
+</body>
+
+</html>
