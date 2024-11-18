@@ -1,5 +1,6 @@
 import { compileToFunction } from "./compile/index"
 import { initStatus } from "./initStatus"
+import { mountComponent } from "./lifecycle"
 
 export function initMixin(Vue) {
     Vue.prototype.init = function (options) {
@@ -18,8 +19,9 @@ export function initMixin(Vue) {
     Vue.prototype.$mount = function (el) {
         // console.log('el', el)
         el = document.querySelector(el)
-
         let vm = this
+
+        vm.$el = el
         let options = vm.$options
 
         if (!options.render) {
@@ -27,18 +29,21 @@ export function initMixin(Vue) {
             if (!template && el) {
                 // 获取html
                 el = el.outerHTML
-                console.log('el.outerHTML', el)
+                // console.log('el.outerHTML', el)
 
-                // html -> ast语法树
-                let ast = compileToFunction(el)
+                // html -> ast语法树 -> 字符串 -> render()
+                let render = compileToFunction(el)
+                // console.log('render999', render)
 
+                // 1. render => vnode
+                options.render = render
+                // 2. vnode -> realNode
+
+                // 3. 放到页面上去
             }
-            // if (template) {
-            //     options.render = compileToFunction(template)
-            // }
-        } else {
-
         }
+        // 挂载组件
+        mountComponent(vm, el)
     }
 
 }

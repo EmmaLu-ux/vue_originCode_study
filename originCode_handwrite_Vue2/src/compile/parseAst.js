@@ -31,7 +31,7 @@ function start(tag, attrs) {
 // 获取文本
 function charts(text) {
     // console.log('文本', text)
-    text = text.replace(/s/g, '')
+    text = text.replace(/\s/g, '') // 移除字符串中的空白、制表位、换行符等
     if (text) {
         createParent.children.push({
             type: 3,

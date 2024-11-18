@@ -8,15 +8,17 @@
 </head>
 
 <body>
-    <div id="app" style="color: red; font-size: 20px;">
-        123{{message}}
-        <h1>qwe</h1>
+    <div id="app" style="color: red; font-size: 10px;">123 {{message}} asd<span>哈哈<span>啦啦啦123</span></span>
     </div>
     <script src="dist/vue.js"></script>
 
     <script>
         // umd Vue
         // console.log(Vue)
+        Vue.Mixin({
+            created() { }
+        })
+
         let vm = new Vue({
             el: "#app",
             data() {
